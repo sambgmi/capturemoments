@@ -1,4 +1,3 @@
-<!-- templates/photographers.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,41 +10,34 @@
       background-color: #fff5f0;
       font-family: 'Segoe UI', sans-serif;
     }
-
     .navbar {
       background-color: #ff6600;
     }
-
     .navbar-brand, .nav-link, .navbar-text {
       color: white !important;
       font-weight: 500;
     }
-
     .card {
       border: none;
       border-radius: 16px;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
-
     .card:hover {
       transform: translateY(-5px);
     }
-
     .card-img-top {
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
       height: 250px;
       object-fit: cover;
     }
-
     .btn-orange {
       background-color: #ff6600;
       color: white;
       border: none;
       transition: 0.3s;
     }
-
     .btn-orange:hover {
       background-color: #e65500;
     }
@@ -69,18 +61,73 @@
     <h2 class="text-center mb-4">Our Featured Photographers</h2>
     <div class="row g-4">
 
-      {% for p in photographers %}
+      <!-- Human photographer cards using Unsplash -->
       <div class="col-md-4">
         <div class="card">
-          <img src="{{ p.image_url }}" class="card-img-top" alt="{{ p.name }}">
+          <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=600&q=80" class="card-img-top" alt="Jane Smith">
           <div class="card-body">
-            <h5 class="card-title">{{ p.name }}</h5>
-            <p class="card-text">{{ p.speciality }}</p>
-            <a href="{{ url_for('booking') }}?photographer={{ p.name | urlencode }}&event={{ p.event | urlencode }}" class="btn btn-orange">Book Now</a>
+            <h5 class="card-title">Jane Smith</h5>
+            <p class="card-text">Wedding & Portrait Specialist</p>
+            <a href="{{ url_for('booking') }}?photographer=Jane%20Smith&event=Wedding" class="btn btn-orange">Book Now</a>
           </div>
         </div>
       </div>
-      {% endfor %}
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80" class="card-img-top" alt="John Doe">
+          <div class="card-body">
+            <h5 class="card-title">John Doe</h5>
+            <p class="card-text">Wildlife & Nature Photographer</p>
+            <a href="{{ url_for('booking') }}?photographer=John%20Doe&event=Wildlife" class="btn btn-orange">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&q=80" class="card-img-top" alt="Priya Patel">
+          <div class="card-body">
+            <h5 class="card-title">Priya Patel</h5>
+            <p class="card-text">Events & Candid Moments</p>
+            <a href="{{ url_for('booking') }}?photographer=Priya%20Patel&event=Events" class="btn btn-orange">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a0b5b?w=600&q=80" class="card-img-top" alt="Alex Lee">
+          <div class="card-body">
+            <h5 class="card-title">Alex Lee</h5>
+            <p class="card-text">Fashion & Editorial Photography</p>
+            <a href="{{ url_for('booking') }}?photographer=Alex%20Lee&event=Fashion" class="btn btn-orange">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=600&q=80" class="card-img-top" alt="Sara Kim">
+          <div class="card-body">
+            <h5 class="card-title">Sara Kim</h5>
+            <p class="card-text">Travel & Landscape Expert</p>
+            <a href="{{ url_for('booking') }}?photographer=Sara%20Kim&event=Travel" class="btn btn-orange">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1519340333755-c1aa5571fd46?w=600&q=80" class="card-img-top" alt="Rohit Sharma">
+          <div class="card-body">
+            <h5 class="card-title">Rohit Sharma</h5>
+            <p class="card-text">Corporate & Product Shoots</p>
+            <a href="{{ url_for('booking') }}?photographer=Rohit%20Sharma&event=Corporate" class="btn btn-orange">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- End static cards -->
 
     </div>
   </div>

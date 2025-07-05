@@ -12,6 +12,39 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
+    /* Orange themed navbar */
+    .navbar {
+      background-color: #ff6600 !important;
+      box-shadow: 0 2px 10px rgba(255, 102, 0, 0.2);
+    }
+
+    .navbar-brand {
+      color: white !important;
+      font-weight: bold;
+    }
+
+    .navbar-brand:hover {
+      color: #fff3e0 !important;
+    }
+
+    .nav-link {
+      color: white !important;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #fff3e0 !important;
+    }
+
+    .navbar-toggler {
+      border-color: white;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1);
+    }
+
     .confirmation-container {
       max-width: 700px;
       margin: 100px auto;
@@ -32,6 +65,7 @@
       font-weight: bold;
       font-size: 1.8rem;
       margin-bottom: 1rem;
+      color: #333;
     }
 
     .confirmation-text {
@@ -40,7 +74,7 @@
     }
 
     .btn-orange {
-      background-color: #fd7e14;
+      background-color: #ff6600;
       color: white;
       border: none;
       padding: 0.6rem 1.3rem;
@@ -50,7 +84,8 @@
     }
 
     .btn-orange:hover {
-      background-color: #e96d0f;
+      background-color: #e55a00;
+      color: white;
     }
 
     footer {
@@ -65,10 +100,10 @@
 </head>
 <body>
 
-<!-- ✅ Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+<!-- ✅ Orange Themed Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold text-orange" href="{{ url_for('home') }}">
+    <a class="navbar-brand" href="{{ url_for('home') }}">
       <i class="bi bi-camera-fill me-1"></i> CaptureMoments
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -82,12 +117,10 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('photographers') }}">Photographers</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('my_bookings') }}">My Bookings</a>
-        </li>
-        {% if session.get('user') %}
+      
+        {% if session.get('username') %}
           <li class="nav-item">
-            <a class="nav-link text-danger" href="{{ url_for('logout') }}">Logout</a>
+            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
           </li>
         {% else %}
           <li class="nav-item">
@@ -113,9 +146,7 @@
   <a href="{{ url_for('home') }}" class="btn btn-orange me-2">
     <i class="bi bi-house-door-fill me-1"></i> Back to Home
   </a>
-  <a href="{{ url_for('my_bookings') }}" class="btn btn-outline-secondary">
-    <i class="bi bi-calendar-check me-1"></i> View My Bookings
-  </a>
+ 
 </div>
 
 <!-- ✅ Footer -->
